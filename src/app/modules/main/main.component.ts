@@ -14,24 +14,6 @@ export class MainComponent implements OnInit {
       title: 'Página inicial',
       icon: 'dashboard',
       itens: [],
-    },
-    {
-      router: '/main/project',
-      title: 'Projetos',
-      icon: 'account_circle',
-      itens: [],
-    },
-    {
-      router: '/main/module',
-      title: 'Módulos',
-      icon: 'account_circle',
-      itens: [],
-    },
-    {
-      router: '/main/component',
-      title: 'Componentes',
-      icon: 'account_circle',
-      itens: [],
     }
   ];
 
