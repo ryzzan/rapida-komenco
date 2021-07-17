@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 /** Components */
 import { DashboardComponent } from '../../components/dashboard/dashboard.component';
-import { ProfileComponent } from 'src/app/components/profile/profile.component';
+import { ProfileComponent } from '../../components/profile/profile.component';
 import { MainComponent } from './main.component';
 
 const routes: Routes = [
