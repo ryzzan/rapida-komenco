@@ -12,6 +12,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { AppComponent } from './app.component';
 import { LogoutConfirmationDialogComponent } from './components/logout-confirmation-dialog/logout-confirmation-dialog.component';
 import { RemoveConfirmationDialogComponent } from './components/remove-confirmation-dialog/remove-confirmation-dialog.component';
+import { AuthenticationGuard } from './guards/authentication.guard';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { RemoveConfirmationDialogComponent } from './components/remove-confirmat
     HttpClientModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    AuthenticationGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

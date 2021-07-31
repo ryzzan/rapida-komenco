@@ -16,11 +16,14 @@
         <input matInput type="password" formControlName="password" id="password" placeholder="Digite sua senha" required
           autocomplete="new-password">
       </mat-form-field>
-      <button mat-raised-button color="primary" [routerLink]="['/main']" routerLinkActive="router-link-active">ENTRAR</button>
+      <button mat-raised-button color="primary" [disabled]="!loginForm.valid">
+        ENTRAR
+      </button>
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button [routerLink]="['/recover-password']" routerLinkActive="router-link-active">Esqueci minha
-      senha</button>
+    <button mat-button [routerLink]="['/recover-password']" routerLinkActive="router-link-active">
+      Esqueci minha senha
+    </button>
   </mat-card-actions>
 </mat-card>

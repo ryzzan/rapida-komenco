@@ -5,12 +5,15 @@ import {
   FormBuilder,
   Validators
 } from '@angular/forms';
+import { AuthService } from './auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.sass']
-}) export class LoginComponent {
-  constructor (private loginFormBuilder: FormBuilder) {}
+}) 
+
+export class LoginComponent {
+  constructor (private loginFormBuilder: FormBuilder, private authService: AuthService) {}
 
   loginForm = this.loginFormBuilder.group({
     'user': [null, [Validators.required]],
@@ -18,6 +21,7 @@ import {
   });
 
 
-  loginSubmit = () => {
+  loginSubmit = (): void => {
+    void this.authService.login(this.loginForm.value);
   }
 }
