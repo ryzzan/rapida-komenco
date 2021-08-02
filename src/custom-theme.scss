@@ -12,70 +12,254 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$dark-primary-text: rgba(black, 0.87);
-$dark-secondary-text: rgba(black, 0.54);
-$dark-disabled-text: rgba(black, 0.38);
-$dark-dividers: rgba(black, 0.12);
-$dark-focused: rgba(black, 0.12);
-$light-primary-text: white;
-$light-secondary-text: rgba(white, 0.7);
-$light-disabled-text: rgba(white, 0.5);
-$light-dividers: rgba(white, 0.12);
-$light-focused: rgba(white, 0.12);
+$dark-primary-text-casa: rgba(#760c25, 0.87);
+$dark-secondary-text-jardim: rgba(#03332a, 0.54);
+$dark-secondary-text-varanda: rgba(#1a2120, 0.54);
+$lps-dark-disabled-casa: rgba(#760c25, 0.38);
+$lps-dark-dividers-casa: rgba(#760c25, 0.12);
+$lps-dark-focused-casa: rgba(#760c25, 0.12);
+$light-primary-text-casa: #fbd1db;
+$light-secondary-text-jardim: rgba(#cde0dd, 0.7);
+$light-secondary-text-varanda: rgba(#d6d9d9, 0.7);
+$lps-light-disabled-casa: rgba(#fbd1db, 0.5);
+$lps-light-dividers-casa: rgba(#fbd1db, 0.12);
+$lps-light-focused-casa: rgba(#fbd1db, 0.12);
 
-$kunlatek-palette: (
-  50: #e9eaf5,
-  100: #c7cbe7,
-  200: #7f89c5,
-  300: #7f89c5,
-  400: #636fb9,
-  500: #4a55ad,
-  600: #434da3,
-  700: #3b4397,
-  800: #2c307f,
-  900: #1f1f69,
-  A100: #ccdbe0,
-  A200: #aec2ca,
-  A400: #7795a3,
-  A700: #445f64,
+$lps-dark-disabled-jardim: rgba(#03332a, 0.38);
+$lps-dark-dividers-jardim: rgba(#03332a, 0.12);
+$lps-dark-focused-jardim: rgba(#03332a, 0.12);
+$lps-light-disabled-jardim: rgba(#cde0dd, 0.5);
+$lps-light-dividers-jardim: rgba(#cde0dd, 0.12);
+$lps-light-focused-jardim: rgba(#cde0dd, 0.12);
+
+$lps-dark-disabled-varanda: rgba(#1a2120, 0.38);
+$lps-dark-dividers-varanda: rgba(#1a2120, 0.12);
+$lps-dark-focused-varanda: rgba(#1a2120, 0.12);
+$lps-light-disabled-varanda: rgba(#d6d9d9, 0.5);
+$lps-light-dividers-varanda: rgba(#d6d9d9, 0.12);
+$lps-light-focused-varanda: rgba(#d6d9d9, 0.12);
+
+$dark-primary-text-danger: rgba(#6a1f1a, 0.87);
+$lps-dark-disabled-danger: rgba(#6a1f1a, 0.38);
+$lps-dark-dividers-danger: rgba(#6a1f1a, 0.12);
+$lps-dark-focused-danger: rgba(#6a1f1a, 0.12);
+$light-primary-text-danger: #f6d9d7;
+$lps-light-disabled-danger: rgba(#f6d9d7, 0.5);
+$lps-light-dividers-danger: rgba(#f6d9d7, 0.12);
+$lps-light-focused-danger: rgba(#f6d9d7, 0.12);
+
+$dark-primary-text-alert: rgba(#744d14, 0.87);
+$lps-dark-disabled-alert: rgba(#744d14, 0.38);
+$lps-dark-dividers-alert: rgba(#744d14, 0.12);
+$lps-dark-focused-alert: rgba(#744d14, 0.12);
+$light-primary-text-alert: #faebd4;
+$lps-light-disabled-alert: rgba(#faebd4, 0.5);
+$lps-light-dividers-alert: rgba(#faebd4, 0.12);
+$lps-light-focused-alert: rgba(#faebd4, 0.12);
+
+$dark-primary-text-success: rgba(#033b26, 0.87);
+$lps-dark-disabled-success: rgba(#033b26, 0.38);
+$lps-dark-dividers-success: rgba(#033b26, 0.12);
+$lps-dark-focused-success: rgba(#033b26, 0.12);
+$light-primary-text-success: #cde3db;
+$lps-light-disabled-success: rgba(#cde3db, 0.5);
+$lps-light-dividers-success: rgba(#cde3db, 0.12);
+$lps-light-focused-success: rgba(#cde3db, 0.12);
+
+$dark-primary-text-info: rgba(#05345f, 0.87);
+$lps-dark-disabled-info: rgba(#05345f, 0.38);
+$lps-dark-dividers-info: rgba(#05345f, 0.12);
+$lps-dark-focused-info: rgba(#05345f, 0.12);
+$light-primary-text-info: #cee1f2;
+$lps-light-disabled-info: rgba(#cee1f2, 0.5);
+$lps-light-dividers-info: rgba(#cee1f2, 0.12);
+$lps-light-focused-info: rgba(#cee1f2, 0.12);
+
+$lps-block: rgba(#403d3d, 0.87);
+$lps-dark-disabled-block: rgba(#403d3d, 0.38);
+$lps-dark-dividers-block: rgba(#403d3d, 0.12);
+$lps-dark-focused-block: rgba(#403d3d, 0.12);
+$light-primary-text-block: #e6e4e4;
+$lps-light-disabled-block: rgba(#e6e4e4, 0.5);
+$lps-light-dividers-block: rgba(#e6e4e4, 0.12);
+$lps-light-focused-block: rgba(#e6e4e4, 0.12);
+
+$mat-lps-casa: (
+  100: #fbd1db,
+  200: #f58ca5,
+  300: #f15c81,
+  400: #eb194b,
+  500: #d31643,
+  600: #a51134,
+  700: #760c25,
   contrast: (
-    50: $dark-primary-text,
-    100: $dark-primary-text,
-    200: $dark-primary-text,
-    300: $dark-primary-text,
-    400: $dark-primary-text,
-    500: $light-primary-text,
-    600: $light-primary-text,
-    700: $light-primary-text,
-    800: $light-primary-text,
-    900: $light-primary-text,
-    A100: $dark-primary-text,
-    A200: $light-primary-text,
-    A400: $light-primary-text,
-    A700: $light-primary-text,
+    100: $dark-primary-text-casa,
+    200: $dark-primary-text-casa,
+    300: $dark-primary-text-casa,
+    400: $dark-primary-text-casa,
+    500: $light-primary-text-casa,
+    600: $light-primary-text-casa,
+    700: $light-primary-text-casa,
   )
 );
-$rapida-komenco-primary: mat.define-palette($kunlatek-palette);
-$rapida-komenco-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$mat-lps-jardim: (
+  100: #cde0dd,
+  200: #82b2a9,
+  300: #519387,
+  400: #066554,
+  500: #055b4c,
+  600: #04473b,
+  700: #03332a,
+  contrast: (
+    100: $dark-secondary-text-jardim,
+    200: $dark-secondary-text-jardim,
+    300: $dark-secondary-text-jardim,
+    400: $dark-secondary-text-jardim,
+    500: $light-secondary-text-jardim,
+    600: $light-secondary-text-jardim,
+    700: $light-secondary-text-jardim,
+  )
+);
+
+$mat-lps-varanda: (
+  100: #d6d9d9,
+  200: #99a1a0,
+  300: #717b7a,
+  400: #344341,
+  500: #2f3c3a,
+  600: #242f2d,
+  700: #1a2120,
+  contrast: (
+    100: $dark-secondary-text-varanda,
+    200: $dark-secondary-text-varanda,
+    300: $dark-secondary-text-varanda,
+    400: $dark-secondary-text-varanda,
+    500: $light-secondary-text-varanda,
+    600: $light-secondary-text-varanda,
+    700: $light-secondary-text-varanda,
+  )
+);
+
+$mat-lps-danger: (
+  100: #f6d9d7,
+  200: #ea9f9a,
+  300: #d43f35,
+  400: #d43f35,
+  500: #d43f35,
+  600: #942c25,
+  700: #6a1f1a,
+  contrast: (
+    100: $dark-primary-text-danger,
+    200: $dark-primary-text-danger,
+    300: $dark-primary-text-danger,
+    400: $dark-primary-text-danger,
+    500: $light-primary-text-danger,
+    600: $light-primary-text-danger,
+    700: $light-primary-text-danger,
+  )
+);
+
+$mat-lps-alert: (
+  100: #faebd4,
+  200: #f4cd93,
+  300: #f4cd93,
+  400: #e89b28,
+  500: #e89b28,
+  600: #a26c1c,
+  700: #744d14,
+  contrast: (
+    100: $dark-primary-text-alert,
+    200: $dark-primary-text-alert,
+    300: $dark-primary-text-alert,
+    400: $dark-primary-text-alert,
+    500: $light-primary-text-alert,
+    600: $light-primary-text-alert,
+    700: $light-primary-text-alert,
+  )
+);
+
+$mat-lps-success: (
+  100: #cde3db,
+  200: #83baa6,
+  300: #07754d,
+  400: #07754d,
+  500: #07754d,
+  600: #055236,
+  700: #033b26,
+  contrast: (
+    100: $dark-primary-text-success,
+    200: $dark-primary-text-success,
+    300: $dark-primary-text-success,
+    400: $dark-primary-text-success,
+    500: $light-primary-text-success,
+    600: $light-primary-text-success,
+    700: $light-primary-text-success,
+  )
+);
+
+$mat-lps-info: (
+  100: #cee1f2,
+  200: #84b3df,
+  300: #0a68bf,
+  400: #0a68bf,
+  500: #0a68bf,
+  600: #074986,
+  700: #05345f,
+  contrast: (
+    100: $dark-primary-text-info,
+    200: $dark-primary-text-info,
+    300: $dark-primary-text-info,
+    400: $dark-primary-text-info,
+    500: $light-primary-text-info,
+    600: $light-primary-text-info,
+    700: $light-primary-text-info,
+  )
+);
+
+$mat-lps-block: (
+  100: #e6e4e4,
+  200: #bfbcbc,
+  300: #807979,
+  400: #807979,
+  500: #807979,
+  600: #5a5555,
+  700: #403d3d,
+  contrast: (
+    100: $lps-block,
+    200: $lps-block,
+    300: $lps-block,
+    400: $lps-block,
+    500: $light-primary-text-block,
+    600: $light-primary-text-block,
+    700: $light-primary-text-block,
+  )
+);
+
+$lopes-quickstart-primary: mat.define-palette($mat-lps-casa);
+$lopes-quickstart-accent: mat.define-palette($mat-lps-alert, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$rapida-komenco-warn: mat.define-palette(mat.$red-palette);
+$lopes-quickstart-warn: mat.define-palette($mat-lps-danger);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$rapida-komenco-theme: mat.define-light-theme((
+$lopes-quickstart-theme: mat.define-light-theme((
   color: (
-    primary: $rapida-komenco-primary,
-    accent: $rapida-komenco-accent,
-    warn: $rapida-komenco-warn,
+    primary: $lopes-quickstart-primary,
+    accent: $lopes-quickstart-accent,
+    warn: $lopes-quickstart-warn,
   )
 ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($rapida-komenco-theme);
+@include mat.all-component-themes($lopes-quickstart-theme);
 
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

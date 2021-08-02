@@ -38,12 +38,11 @@ export class AuthService {
         this.user.next(user);
         localStorage.setItem('user_data', JSON.stringify(user));
 
-        void this.router.navigate(['/']);
+        void this.router.navigate(['/main']);
       });
   }
 
   async login(login: Login): Promise<void | LoginResponse> {
-    console.log(`it's a fucking POST!`);
     return this.http
       .post(`${this.BASEURL}/auth/login`, login)
       .toPromise()
@@ -62,6 +61,6 @@ export class AuthService {
   logout(): void {
     this.user.next(null);
     localStorage.clear();
-    void this.router.navigate(['/auth/login']);
+    void this.router.navigate(['/']);
   }
 }
