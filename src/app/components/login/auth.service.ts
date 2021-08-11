@@ -29,15 +29,14 @@ export class AuthService {
     this.user.next(JSON.parse(data));
   }
 
-  private setUserAndTokenLocalStorage(token: string): void {
+  private async setUserAndTokenLocalStorage(token: string): Promise<void> {
     localStorage.setItem('token', token);
-    void this.http
-      .get<User>(`${this.BASEURL}/auth/get-user/${token}`)
+    await this.http
+      .post<User>(`${this.BASEURL}/auth/get-user/${token}`, {projectId: environment.projectId})
       .toPromise()
       .then((user) => {
         this.user.next(user);
         localStorage.setItem('user_data', JSON.stringify(user));
-
         void this.router.navigate(['/main']);
       });
   }
@@ -48,6 +47,7 @@ export class AuthService {
       .toPromise()
       .then((res) => {
         const { token } = res as LoginResponse;
+        const userAndTokenLocalStorage = 
         this.setUserAndTokenLocalStorage(token);
       });
   }

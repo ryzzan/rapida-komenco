@@ -9,14 +9,15 @@
       <mat-form-field>
         <mat-label>Usuário</mat-label>
         <input matInput type="text" formControlName="user" id="user" placeholder="Sua identidade, nome de usuário ou e-mail" required autocomplete="new-password">
-        <mat-error>texto</mat-error>
+        <mat-error>{{errorHandler.validatorError(loginForm.controls['user'].errors)}}</mat-error> 
       </mat-form-field>
       <mat-form-field>
         <mat-label>Senha</mat-label>
-        <input matInput type="password" formControlName="password" id="password" placeholder="Digite sua senha" required
-          autocomplete="new-password">
+        <input matInput type="password" formControlName="password" id="password" placeholder="Digite sua senha" required autocomplete="new-password">
+        <mat-error>{{errorHandler.validatorError(loginForm.controls['password'].errors)}}</mat-error> 
       </mat-form-field>
-      <button mat-raised-button color="primary" [disabled]="!loginForm.valid">
+      
+      <button mat-raised-button color="primary" [disabled]="!loginForm.valid || loading">
         ENTRAR
       </button>
     </form>

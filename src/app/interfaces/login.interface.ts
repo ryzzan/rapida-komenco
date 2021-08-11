@@ -1,6 +1,7 @@
 export interface Login {
   login: string;
   password: string;
+  projectId: string;
 }
 export interface LoginResponse {
   token: string;

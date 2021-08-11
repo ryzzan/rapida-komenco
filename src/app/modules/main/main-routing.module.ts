@@ -15,8 +15,31 @@ const routes: Routes = [
   {path: '**', redirectTo: '', pathMatch: 'full'},
 ];
 
+const acl = localStorage.getItem('user_data');
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class MainRoutingModule { }
+
+/**
+ * TO-DO
+ * GUARD OVER PATH
+ */
+
+// const buildMenuOverAcl = (acl: any) => {
+//   const aclObject = JSON.parse(acl);
+//   const array = aclObject.acl.permissions;
+//   const routeArray = [];
+
+//   for (let i = 0; i < array.length; i++) {
+//     const element = array[i];
+//     routeArray.push({
+//       path: element.moduleId.menu.route,
+//       component: `${element.moduleId.name}Component`
+//     })
+//   }
+// }
+
+// buildMenuOverAcl(acl);
