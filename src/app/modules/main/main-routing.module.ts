@@ -1,18 +1,46 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {
+  NgModule
+} from '@angular/core';
+import {
+  RouterModule,
+  Routes
+} from '@angular/router';
 
 /** Components */
-import { DashboardComponent } from '../../components/dashboard/dashboard.component';
-import { ProfileComponent } from '../../components/profile/profile.component';
-import { MainComponent } from './main.component';
+import {
+  DashboardComponent
+} from '../../components/dashboard/dashboard.component';
+import {
+  ProfileComponent
+} from '../../components/profile/profile.component';
+import {
+  MainComponent
+} from './main.component';
 
-const routes: Routes = [
-  {path: '', component: MainComponent, children: [
-    {path: 'dashboard', component: DashboardComponent},
-    {path: 'profile/:id', component: ProfileComponent},
-    {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-  ]},
-  {path: '**', redirectTo: '', pathMatch: 'full'},
+const routes: Routes = [{
+    path: '',
+    component: MainComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
 ];
 
 const acl = localStorage.getItem('user_data');
@@ -21,7 +49,7 @@ const acl = localStorage.getItem('user_data');
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MainRoutingModule { }
+export class MainRoutingModule {}
 
 /**
  * TO-DO

@@ -5,7 +5,9 @@ import {
   RouterModule,
   Routes
 } from '@angular/router';
-import { AuthenticationGuard } from 'src/app/guards/authentication.guard';
+import { 
+  RegisterComponent 
+} from 'src/app/components/register/register.component';
 
 //Components
 import {
@@ -35,6 +37,10 @@ const routes: Routes = [{
       {
         path: 'change-password',
         component: ChangePasswordComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       },
       {
         path: '',

@@ -10,10 +10,24 @@ export class MyErrorHandler {
     apiErrorMessage = (errorMessage: string) => {
         switch (errorMessage) {
             case 'Error: Incorrect password':
-                return 'Senha incorreta'
+                return 'Senha incorreta.'
                 break;
             case 'Error: User not found':
-                return 'Usuário não encontrado'
+                return 'Usuário não encontrado.'
+                break;
+            case 'Error: The email has already been registered':
+                return 'E-mail já cadastrado.'
+                break;
+            case 'Error: The uniqueId has already been registered':
+                return 'CPF já cadastrado.'
+                break;
+
+            case 'Error: Birth date doesnt correspond to the CPF':
+                return 'Data de nascimento não corresponde a do CPF.'
+                break;
+
+            case 'Project does not have authorization':
+                return 'Sem autorização para este aplicativo.'
                 break;
         
             default:

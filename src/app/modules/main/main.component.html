@@ -42,10 +42,16 @@
 </mat-drawer-container>
 
 <mat-menu #profileMenu="matMenu">
-  <!-- <button mat-menu-item [routerLink]="['/main/profile']">
+  <button mat-menu-item [routerLink]="['/main/profile']" *ngIf="userType === 'person'">
     <mat-icon>person</mat-icon>
     <span>Alterar dados pessoais</span>
-  </button> -->
+  </button>
+
+  <button mat-menu-item [routerLink]="['/main/profile']" *ngIf="userType === 'company'">
+    <mat-icon>business</mat-icon>
+    <span>Alterar dados da empresa</span>
+  </button>
+
   <button mat-menu-item [routerLink]="['/main/change-password']">
     <mat-icon>lock</mat-icon>
     <span>Alterar senha</span>

@@ -4,22 +4,27 @@
       <mat-tab label="Dados pessoais" id="tab-personal">
         <form id="profile" [formGroup]="profileForm" (ngSubmit)="profileSubmit()">
           <mat-form-field>
-            <mat-label>CPF</mat-label><input matInput type="text" formControlName="uniqueId" id="uniqueId"
-              placeholder="Apenas números" required autocomplete="new-password">
+            <mat-label>CPF</mat-label>
+            <input matInput type="text" formControlName="uniqueId" id="uniqueId" placeholder="Apenas números" required autocomplete="new-password">
           </mat-form-field>
           <mat-form-field>
             <mat-label>Nome</mat-label><input matInput type="text" formControlName="name" id="name"
               placeholder="Nome completo" required autocomplete="new-password">
           </mat-form-field>
+
           <mat-form-field>
-            <mat-label>Nascimento</mat-label><input matInput type="date" formControlName="birthday" id="birthday"
-              placeholder="Nome completo" required autocomplete="new-password">
+            <mat-label>Aniversário</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="birthday" [(ngModel)]="profile.birthday">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
           </mat-form-field>
+          
           <mat-form-field>
             <mat-label>Gênero</mat-label>
             <mat-select formControlName="gender">
               <mat-option *ngFor="let genderItem of genderSelectObject" [value]="genderItem.value">
-                {{genderItem.valueView}}</mat-option>
+                {{genderItem.valueView}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </form>

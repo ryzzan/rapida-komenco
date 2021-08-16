@@ -8,6 +8,8 @@ import { SharedModule } from '../shared/shared.module';
 import { MainComponent } from './main.component';
 import { ProfileComponent } from 'src/app/components/profile/profile.component';
 import { DashboardComponent } from 'src/app/components/dashboard/dashboard.component';
+import { RegisterComponent } from '../../components/register/register.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 @NgModule({
@@ -15,11 +17,17 @@ import { DashboardComponent } from 'src/app/components/dashboard/dashboard.compo
     MainComponent,
     ProfileComponent,
     DashboardComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
     MainRoutingModule,
     SharedModule,
+  ],
+  providers: [
+    {
+      provide: MAT_DATE_LOCALE, useValue: 'en-GB'
+    }
   ]
 })
 export class MainModule { }

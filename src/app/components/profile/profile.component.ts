@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import {
   Component
 } from '@angular/core';
@@ -11,21 +12,41 @@ import {
   ActivatedRoute,
   Router
 } from '@angular/router';
+import { ProfileFormService } from './profile.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.sass']
 }) export class ProfileComponent {
-  id: string = this.profileRoute.snapshot.params['id'];
-  isAddModule: boolean = !this.id;
-  constructor(private profileFormBuilder: FormBuilder, private profileRoute: ActivatedRoute, private profileRouter: Router, ) {
-    this.setForm();
+  profile;
+  profileForm;
+  birthday = new Date((new Date().getTime() - 3888000000));
+  constructor(
+    private profileFormBuilder: FormBuilder,
+    private profileRoute: ActivatedRoute,
+    private _profileFormService: ProfileFormService
+  ) {
+    const userData = localStorage.getItem('user_data');
+    const pipe = new DatePipe('en-US');
+    if (userData) {
+      const object = JSON.parse(userData);
+      this.profile = object.personInfo;
+    }
+    
+    this.profileForm = this.profileFormBuilder.group({
+      uniqueId: [{ value: this.profile.uniqueId, disabled: true }, [Validators.required]],
+      name: [{ value: this.profile.name, disabled: true }, [Validators.required]],
+      birthday: [{ value: new Date(this.profile.birthday), disabled: true }, [Validators.required]],
+      gender: [{ value: this.profile.gender, disabled: true }, []],
+      contacts: this.profileFormBuilder.array([]),
+      addresses: this.profileFormBuilder.array([]),
+    });
   };
   genderSelectObject = [{
-    value: 'f',
+    value: 'F',
     valueView: 'Feminino'
   }, {
-    value: 'm',
+    value: 'M',
     valueView: 'Masculino'
   }];
   contactTypeSelectObject = [{
@@ -41,34 +62,22 @@ import {
     value: 'socialMedia',
     valueView: 'Rede social'
   }];
-  profileForm = this.profileFormBuilder.group({
-    uniqueId: [null, [Validators.required]],
-    name: [null, [Validators.required]],
-    birthday: [null, [Validators.required]],
-    gender: [null, []],
-    contacts: this.profileFormBuilder.array([]),
-    addresses: this.profileFormBuilder.array([]),
-  });
-  setForm = () => {
-    if (!this.isAddModule) {
-      /** TO-DO */ /** Service this.userService.getById(this.id).pipe(first()).subscribe(x => this.form.patchValue(x));*/
-    }
-  }
+
   newContacts(): FormGroup {
     return this.profileFormBuilder.group({
-      contactId: [null, [Validators.required, ]],
+      contactId: [null, [Validators.required,]],
       contactType: [null, []],
-      value: [null, [Validators.required, ]],
-      contactComplement: [null, [Validators.required, ]],
+      value: [null, [Validators.required,]],
+      contactComplement: [null, [Validators.required,]],
     })
   };
   newAddresses(): FormGroup {
     return this.profileFormBuilder.group({
-      postalCode: [null, [Validators.required, ]],
-      addressId: [null, [Validators.required, ]],
-      address: [null, [Validators.required, ]],
-      number: [null, [Validators.required, ]],
-      district: [null, [Validators.required, ]],
+      postalCode: [null, [Validators.required,]],
+      addressId: [null, [Validators.required,]],
+      address: [null, [Validators.required,]],
+      number: [null, [Validators.required,]],
+      district: [null, [Validators.required,]],
       addressComplement: [null, []],
       country: [null, []],
       state: [null, []],
@@ -94,15 +103,8 @@ import {
     this.addresses.removeAt(i)
   }
   profileSubmit = () => {
-    fetch('$ENV$/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify(this.profileForm.value),
-    }).then((data) => {
-      data.json().then((keys) => {})
-    });
+    this._profileFormService.save(this.profileForm).then((res) => {
+
+    }).catch((err) => console.log(err));
   }
 }

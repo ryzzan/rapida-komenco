@@ -1,0 +1,40 @@
+<mat-card class="centralized">
+  <form id="register" [formGroup]="registerForm" (ngSubmit)="registerSubmit(formDirective)" #formDirective="ngForm">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title>Registro</mat-card-title>
+      <mat-card-subtitle>Cadastro de usuário.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-form-field>
+      <mat-label>CPF</mat-label>
+      <input matInput type="text" formControlName="uniqueId" placeholder="Ex.: 000.000.000-00 ou 00000000000" required
+        autocomplete="new-password">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Aniversário</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthday">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+      <input matInput type="email" formControlName="email" placeholder="Seu e-mail favorito" required
+        autocomplete="new-password">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Senha</mat-label>
+      <input matInput type="password" formControlName="password" placeholder="Uma senha que você lembre" required
+        autocomplete="new-password">
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="!registerForm.valid || loading">
+      {{isAddModule ? 'Criar' : 'Editar'}}
+    </button>
+    <mat-card-actions>
+      <button mat-button [routerLink]="['/']" routerLinkActive="router-link-active">
+        Login
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>
