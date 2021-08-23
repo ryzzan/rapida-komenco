@@ -13,12 +13,14 @@ import { AppComponent } from './app.component';
 import { LogoutConfirmationDialogComponent } from './components/logout-confirmation-dialog/logout-confirmation-dialog.component';
 import { RemoveConfirmationDialogComponent } from './components/remove-confirmation-dialog/remove-confirmation-dialog.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
+import { ObjetArrayToStringPipe } from './pipes/objet-array-to-string.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogoutConfirmationDialogComponent,
     RemoveConfirmationDialogComponent,
+    ObjetArrayToStringPipe,
   ],
   imports: [
     AppRoutingModule,
