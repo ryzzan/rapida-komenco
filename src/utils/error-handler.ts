@@ -31,8 +31,8 @@ export class MyErrorHandler {
                 break;
         
             default:
+                return errorMessage;
                 break;
         }
-        return errorMessage;
     }
 }

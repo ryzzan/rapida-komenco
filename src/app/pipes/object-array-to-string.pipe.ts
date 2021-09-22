@@ -6,7 +6,7 @@ import {
 @Pipe({
   name: 'objetArrayToString'
 })
-export class ObjetArrayToStringPipe implements PipeTransform {
+export class ObjectArrayToStringPipe implements PipeTransform {
   transform(objects: any[], fields: string[]): string[] {
     const response = [''];
     objects.forEach(object => {

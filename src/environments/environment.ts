@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://fundamento-api-kcu5nl2bea-uc.a.run.app',
   mock: false,
   projectId: '60a156941a332bacb40d72c7' //Bonstato Admin
 };
