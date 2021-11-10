@@ -15,6 +15,11 @@ import { RemoveConfirmationDialogComponent } from './components/remove-confirmat
 import { AuthenticationGuard } from './guards/authentication.guard';
 
 /**
+ * Utils
+ */
+import { MyErrorHandler } from 'src/utils/error-handler';
+
+/**
  * Pipes
  */
 import { ObjectArrayToStringPipe } from './pipes/object-array-to-string.pipe';
@@ -34,7 +39,8 @@ import { ObjectArrayToStringPipe } from './pipes/object-array-to-string.pipe';
     SharedModule
   ],
   providers: [
-    AuthenticationGuard
+    AuthenticationGuard,
+    MyErrorHandler
   ],
   bootstrap: [AppComponent]
 })
